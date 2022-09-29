@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <!-- Start Header-part -->
+    <!-- <header>
+      <div class="container">
+        <nav>
+          <ul class="menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Explore</a></li>
+            <li><a href="#">Item Details</a></li>
+            <li><a href="#">Author</a></li>
+            <li><a href="#">Create Yours</a></li>
+          </ul>
+        </nav> 
+      </div>
+    </header> -->
+    <!-- End Header-part -->
+    <div class="container">
+      <div class="translator">
+        <div id="toggle-btn">
+          <div class="circle"></div>
+        </div><br>
+        <div id="bang-text"><h1>মাস্টার্স ভর্তির ফলাফল প্রকাশ।</h1></div>
+        <div id="eng-text"><h1>Masters admission result published.</h1></div>
+      </div><br>
+      <!-- <div class="select-item">
+        <h4>সিলেক্ট করুন</h4>
+        <label for="dhaka">
+          <input type="checkbox" name="" id="dhaka"> <span>Dhaka</span> 
+          </label>
+        <label for="khulna">
+          <input type="checkbox" name="" id="khulna"> <span>Khulna</span> 
+          </label>
+        <label for="rangpur">
+          <input type="checkbox" name="" id="rangpur"> <span>Rangpur</span> 
+        </label>
+      </div> -->
+    </div>
+    <script>
+      var ToggleBtn = document.getElementById('toggle-btn');
+      var BangText = document.getElementById('bang-text');
+      var EngText = document.getElementById('eng-text');
+      ToggleBtn.addEventListener('click', function(){
+        ToggleBtn.classList.toggle('active');
+        BangText.classList.toggle('active');
+        EngText.classList.toggle('active');
+      })
+    </script>
+  </body>
+</html>
