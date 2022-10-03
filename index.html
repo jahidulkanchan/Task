@@ -32,28 +32,38 @@
         <div id="bang-text"><h1>মাস্টার্স ভর্তির ফলাফল প্রকাশ।</h1></div>
         <div id="eng-text"><h1>Masters admission result published.</h1></div>
       </div><br>
-      <!-- <div class="select-item">
         <h4>সিলেক্ট করুন</h4>
-        <label for="dhaka">
-          <input type="checkbox" name="" id="dhaka"> <span>Dhaka</span> 
-          </label>
-        <label for="khulna">
-          <input type="checkbox" name="" id="khulna"> <span>Khulna</span> 
-          </label>
-        <label for="rangpur">
-          <input type="checkbox" name="" id="rangpur"> <span>Rangpur</span> 
-        </label>
-      </div> -->
+      <div class="select-item">
+        <div class="item">
+          <input type="checkbox" name="" class="check-box" id="all-item" checked>
+          <label for="all-item" class="checkbox-label" >সকল বিভাগ</label>
+        </div>
+        <div class="item">
+          <input type="checkbox" name="" class="check-box" id="barishal">
+          <label for="barishal"  class="checkbox-label">বরিশাল</label>
+        </div>
+        <div class="item">
+          <input type="checkbox" name="" class="check-box" id="khulna">
+          <label for="khulna" class="checkbox-label">খুলনা</label>
+        </div>
+      </div><br>
+      <div class="form">
+        <input type="number" name="" id="deposit-user-number" placeholder="Deposit Amount">
+        <button id="deposit-btn">Deposit</button><br><br>
+
+        <input type="number" name="" id="withdraw-user-number" placeholder="Withdraw Amount">
+        <button id="withdraw-btn">Withdraw</button><br>
+
+        <h1 id="pass-value">0</h1>
+        <h1 id="total-value">100</h1>
+
+      </div><br><br>
+      <div class="price">
+        <span id="minus">-</span><span id="number">1</span><span id="plus">+</span>
+        <span id="price-value">100</span>
+      </div>
     </div>
-    <script>
-      var ToggleBtn = document.getElementById('toggle-btn');
-      var BangText = document.getElementById('bang-text');
-      var EngText = document.getElementById('eng-text');
-      ToggleBtn.addEventListener('click', function(){
-        ToggleBtn.classList.toggle('active');
-        BangText.classList.toggle('active');
-        EngText.classList.toggle('active');
-      })
-    </script>
+   
+    <script src="js/custom.js"></script>
   </body>
 </html>

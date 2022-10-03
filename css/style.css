@@ -339,11 +339,80 @@ header  .menu li a{
   #eng-text.active{
     display: inline-block;
   }
-  label{
-    padding: 5px 20px;
+  .select-item{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  .select-item .item{
+    margin: 10px 15px 0px 0px;
+    padding: 5px 10px;
     border-radius: 50px;
-    border: 1px solid black;
+    max-width: 150px;
+    border: 1px solid #e81d38;
+  }
+  .check-box{
+    opacity: 1;
+  }
+  .check-box:checked + .checkbox-label{
+    color: #e81d38;
+  }
+  button{
+    padding: 3px 10px;
+    background-color: #d3d0d0;
+    border: 1px solid #ababab;
+  }
+  button:focus{
+    outline: none;
+  }
+  /* .checkbox-label{
+    position: relative;
+    padding-left: 40px;
     color: #f0254e;
+    cursor: pointer;
+  }
+  .checkbox-label::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background-color: #b1acad;
+  }
+  .checkbox-label::after{
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 4px;
+    width: 5px;
+    height: 12px;
+    border: solid #000000;
+    border-width: 0px 4px 2px 0px;
+    transition: .2s;
+    transform: ;
+  }
+  .check-box::after{
+    transform: rotate(36deg) scale(1);
+  } */
+
+  #pass-value,#total-value{
+    display: inline-block;
+    margin-right: 50px;
+  }
+  .price span{
+    font-size: 30px;
+    font-weight: 700;
+    padding: 0px 10px;
+  }
+  #minus,#plus{
+    background-color: #cdcaca;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
  
   

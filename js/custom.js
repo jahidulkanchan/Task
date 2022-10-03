@@ -1,136 +1,78 @@
-// //Preloader 
-// var preload = document.getElementById("preloader");
-// window.addEventListener("load", function(){
-//     preload.style.display = "none";
-// });
 
-// //wow js
-// new WOW().init();
-//nav toggle
-var navToggler = document.getElementById("nav-toggle");
-var mainMenu = document.querySelector('.main-menu');
+    var ToggleBtn = document.getElementById('toggle-btn');
+    var BangText = document.getElementById('bang-text');
+    var EngText = document.getElementById('eng-text');
+    ToggleBtn.addEventListener('click', function(){
+    ToggleBtn.classList.toggle('active');
+    BangText.classList.toggle('active');
+    EngText.classList.toggle('active');
+    })
 
-navToggler.addEventListener('click', function(){
-    navToggler.classList.toggle("active");
-    mainMenu.classList.toggle("active");
-})
+  // deposit button
+   const depositBtn = document.getElementById('deposit-btn');
+   depositBtn.addEventListener('click', function(){
 
-document.addEventListener('click', function(e){
-    if(e.target.id !== 'nav-toggle' && e.target.classList !=='menu'){
-        navToggler.classList.remove("active");
-        mainMenu.classList.remove("active");
-    }
-});
+   let depositUserNumber = document.getElementById('deposit-user-number').value;
+    let newDepositUserNumber = parseFloat(depositUserNumber);
 
-//Sticky Nav  & TopScroll
-window.addEventListener("scroll" , function(){
-//Sticky Nav
-  var navSlide = document.getElementById("header");
-  navSlide.classList.toggle("sticky", window.scrollY > 200 );
+    let passValue = document.getElementById('pass-value');
+    let newPassValue = parseFloat(passValue.innerText);
 
-//TopScroll
-  var topScroll = document.getElementById("top-scroll");
-  topScroll.addEventListener('click', function(){
-      $(window).scrollTop(0);
-  });
-  topScroll.classList.toggle("visible", window.scrollY > 400 );
-})
+    let totalNumber = document.getElementById('total-value');
+    let newTotal = totalNumber.innerText;
+    newTotal = parseFloat(newTotal);
+     
+   if(newDepositUserNumber >= 1 ){
+      passValue.innerText = newDepositUserNumber + newPassValue;
+      totalNumber.innerText =( newTotal + newDepositUserNumber);
+   }
+    document.getElementById('deposit-user-number').value = '';
 
-//active menu
-// $(document).on('click', 'ul.menu li a', function(){
-//   $(this).addClass('active').siblings().removeClass('active');
-// })
-
-//Smooth-scroll js
-$(document).ready(function () {
-  $(document).on("scroll", onScroll);
-  $('.scroll-to-section a[href^="#"]').on('click', function (e) {
-      e.preventDefault();
-      $(document).off("scroll");  
-      $('.scroll-to-section a').each(function () {
-          $(this).removeClass('active');
-      })
-      $(this).addClass('active');
-      var target = this.hash,
-      menu = target;
-      var target = $(this.hash);
-      $('html, body').stop().animate({
-          scrollTop: (target.offset().top) + 1
-      }, 100, 'swing', function () {
-          window.location.hash = target;
-          $(document).on("scroll", onScroll);
-      });
-  });
-});
-
-function onScroll(event){
-  var scrollPos = $(document).scrollTop();
-  $('.menu a').each(function () {
-      var currLink = $(this);
-      var refElement = $(currLink.attr("href"));
-      if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-          $('.menu li a').removeClass("active");
-          currLink.addClass("active");
-      }
-      else{
-          currLink.removeClass("active");
-      }
-  });
-}
-
-
-
-//owl carousel
-$('.slide1').owlCarousel({
-  loop: true,
-  margin: 20,
-  stagePadding: 10,
-  autoplay: true,
-  nav: false,
-  smartSpeed: 300,
-  responsive:{
-      0:{
-          items:1
-      },
-      600:{
-          items:2
-      },
-      1000:{
-          items:4
-      }
-  }
-});
-// progress bar
-var skillSection = document.getElementById('skill-section');
-var progressBar = document.querySelectorAll('.progress-bar');
-
-window.addEventListener('scroll',() =>{
-var sectionPos = skillSection.getBoundingClientRect().top;
-var screenPos = window.innerHeight /1.2;
-
-function showProgress(){
-    progressBar.forEach(progressBar =>{
-        var value = progressBar.dataset.progress;
-        progressBar.style.opacity = 1;
-        progressBar.style.width = `${value}%`;
     });
-}
 
-function hideProgress(){
-    progressBar.forEach(p =>{
-        p.style.opacity = 0;
-        p.style.width = 0;
-    });
-}
-    if( sectionPos < screenPos){
-        showProgress();
+  // withdraw button
+    let withdrawBtn = document.getElementById('withdraw-btn');
+
+    withdrawBtn.addEventListener('click', function(){
+    let withdrawUserNumber = document.getElementById('withdraw-user-number').value;
+   let newWithdrawUserNumber = parseFloat(withdrawUserNumber);
+
+   let passValue = document.getElementById('pass-value');
+   let newPassValue = parseFloat(passValue.innerText);
+
+   let totalNumber = document.getElementById('total-value');
+    let newTotal = totalNumber.innerText;
+    newTotal = parseFloat(newTotal);
+   
+    if(newWithdrawUserNumber <= newTotal ){
+      passValue.innerText = newWithdrawUserNumber + newPassValue;
+      totalNumber.innerText =( newTotal + newWithdrawUserNumber*-1);
     }
-    // else{
-    //     hideProgress();
-    // }
-});
-//counter
-$('.counterup').counterUp({
-  delay: 10,
-  time: 1000
-});
+    else if(newWithdrawUserNumber > newTotal ){
+      alert('Your balanced is unsufficient')
+    }
+
+    document.getElementById('withdraw-user-number').value = ''; 
+
+   });
+
+
+   // increment decrement button
+    const minusNumber = document.getElementById('minus');
+    countNumber = document.getElementById('number');
+    priceNumber = document.getElementById('price-value');
+    plusNumber = document.getElementById('plus');
+
+    var i = 1;
+    plusNumber.addEventListener('click', function(){
+       i++;
+       countNumber.innerText = i;
+       priceNumber.innerText = 100*i;
+    })
+    minusNumber.addEventListener('click', function(){
+        if(i>1){
+        i--;
+        countNumber.innerText = i; 
+        priceNumber.innerText = priceNumber.innerText-100;    
+        } 
+     })
