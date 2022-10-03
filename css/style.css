@@ -341,6 +341,7 @@ header  .menu li a{
   }
   .select-item{
     display: flex;
+    flex-wrap: wrap;
     justify-content: start;
     align-items: center;
   }
