@@ -11,16 +11,17 @@
   // deposit button
    const depositBtn = document.getElementById('deposit-btn');
    depositBtn.addEventListener('click', function(){
-
+    console.log(parseInt(Math.random()*100));
    let depositUserNumber = document.getElementById('deposit-user-number').value;
     let newDepositUserNumber = parseFloat(depositUserNumber);
 
     let passValue = document.getElementById('pass-value');
     let newPassValue = parseFloat(passValue.innerText);
-
+    
     let totalNumber = document.getElementById('total-value');
     let newTotal = totalNumber.innerText;
     newTotal = parseFloat(newTotal);
+    
      
    if(newDepositUserNumber >= 1 ){
       passValue.innerText = newDepositUserNumber + newPassValue;
@@ -49,7 +50,7 @@
       totalNumber.innerText =( newTotal + newWithdrawUserNumber*-1);
     }
     else if(newWithdrawUserNumber > newTotal ){
-      alert('Your balanced is unsufficient')
+      alert('insufficient balanced. Your current balance $ ' + newTotal)
     }
 
     document.getElementById('withdraw-user-number').value = ''; 
@@ -64,15 +65,21 @@
     plusNumber = document.getElementById('plus');
 
     var i = 1;
-    plusNumber.addEventListener('click', function(){
-       i++;
-       countNumber.innerText = i;
-       priceNumber.innerText = 100*i;
-    })
-    minusNumber.addEventListener('click', function(){
-        if(i>1){
+    function addJust(condition){
+      if (condition == true){
+        i++;
+      }
+      else if(condition == false && i>1){
         i--;
-        countNumber.innerText = i; 
-        priceNumber.innerText = priceNumber.innerText-100;    
-        } 
-     })
+      };
+      countNumber.innerText = i; 
+      priceNumber.innerText = 100*i;  
+     }
+
+    plusNumber.addEventListener('click', function(){  
+      addJust(true);
+    })
+    minusNumber.addEventListener('click', function(){      
+      addJust(false);
+    });
+    
